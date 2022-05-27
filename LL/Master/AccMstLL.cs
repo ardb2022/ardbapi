@@ -74,6 +74,11 @@ namespace SBWSFinanceApi.LL
         {
            return _dac.GetBranchMaster();
         }
+
+        public List<mm_ardb> GetARDBMaster()
+        {
+           return _dac.GetARDBMaster();
+        }
         public List<sm_parameter> GetSystemParameter()
         {
            return _dac.GetSystemParameter();

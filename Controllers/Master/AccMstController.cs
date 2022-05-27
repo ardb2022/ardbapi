@@ -118,6 +118,13 @@ namespace SBWSFinanceApi.Controllers
            return _ll.GetBranchMaster();
         }
 
+        [Route("GetARDBMaster")]
+        [HttpPost]
+        public List<mm_ardb> GetARDBMaster()
+        {
+           return _ll.GetARDBMaster();
+        }
+
         [Route("GetSystemParameter")]
         [HttpPost]
         public List<sm_parameter> GetSystemParameter()

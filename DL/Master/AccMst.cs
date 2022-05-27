@@ -532,6 +532,34 @@ internal List<mm_constitution> GetConstitution()
             
             }
             return mamRets;
+        }  
+
+        internal List<mm_ardb> GetARDBMaster()
+        {
+            List<mm_ardb> mmArdbs = new List<mm_ardb>();
+            string _query=" SELECT ARDB_CD, NAME FROM MM_ARDB ";
+            using (var connection = OrclDbConnection.NewConnection)
+            {              
+                _statement = string.Format(_query);
+                using (var command = OrclDbConnection.Command(connection, _statement))
+                {
+                    using (var reader = command.ExecuteReader())
+                    {
+                        if (reader.HasRows)     
+                        {
+                            while (reader.Read())
+                            {                                
+                               var mardb = new mm_ardb();
+                                mardb.ARDB_CD = UtilityM.CheckNull<string>(reader["ARDB_CD"]);
+                                mardb.NAME = UtilityM.CheckNull<string>(reader["NAME"]);
+                                mmArdbs.Add(mardb);
+                            }
+                        }
+                    }
+                }
+            
+            }
+            return mmArdbs;
         }     
 
          internal List<sm_parameter> GetSystemParameter()

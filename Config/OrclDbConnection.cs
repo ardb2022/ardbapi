@@ -25,17 +25,17 @@ namespace SBWSFinanceApi.Config
             get
             {
                 // BankConfigMst BC = new BankConfigMstLL().ReadAllConfiguration();
-                // BankConfig bc = getBankConfigFromDB();
+                BankConfig bc = getBankConfigFromDB();
                 OracleConnectionStringBuilder sb = new OracleConnectionStringBuilder();
                 // Use below 3 for DEV
-                sb.DataSource = "10.65.65.246:1521/orcl"; // Local
-                sb.UserID = "pcskus_cbs_view";
-                sb.Password = "pcskus_cbs_view161101";
+                // sb.DataSource = "10.65.65.246:1521/orcl"; // Local
+                // sb.UserID = "cfs2022";
+                // sb.Password = "signature";
 
                 // Use below 3 for PRD deploymen/t
-                // sb.DataSource = bc.db_server_ip;
-                // sb.UserID = bc.user1;
-                // sb.Password = bc.pass1;
+                sb.DataSource = bc.db_server_ip;
+                sb.UserID = bc.user1;
+                sb.Password = bc.pass1;
                 // Use below 3 for PRD deploymen/t
                 // sb.DataSource = BC.connstring.Server; 
                 // sb.UserID = BC.connstring.UserId; 
@@ -213,14 +213,14 @@ namespace SBWSFinanceApi.Config
                 OracleConnectionStringBuilder sb = new OracleConnectionStringBuilder();
                 // Use below 3 for DEV
                 // sb.DataSource = "10.65.65.246:1521/orcl"; // EZ Connect -- no TNS Names!
-                sb.DataSource = "10.65.65.246:1521/orcl";                
-                // sb.DataSource = "202.65.156.246:1521/orcl";
-                sb.UserID = "admin_master";
-                sb.Password = "aass2122$";
+                // sb.DataSource = "10.65.65.246:1521/orcl";                
+                // // sb.DataSource = "202.65.156.246:1521/orcl";
+                // sb.UserID = "admin_ardb_master";
+                // sb.Password = "signature";
                 
-                // sb.DataSource = conns.db_server_ip;
-                // sb.UserID = conns.user1;
-                // sb.Password = conns.pass1;
+                sb.DataSource = conns.db_server_ip;
+                sb.UserID = conns.user1;
+                sb.Password = conns.pass1;
                 #endregion
 
                 DbConnection connection = null;
